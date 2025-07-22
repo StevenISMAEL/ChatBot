@@ -16,6 +16,7 @@ const GenerateChatbotResponseInputSchema = z.object({
     role: z.enum(['user', 'assistant']),
     content: z.string(),
   })).optional().describe('The chat history to maintain context.'),
+  sport: z.string().describe('The selected sport discipline.'),
 });
 
 export type GenerateChatbotResponseInput = z.infer<typeof GenerateChatbotResponseInputSchema>;
@@ -34,7 +35,7 @@ const prompt = ai.definePrompt({
   name: 'generateChatbotResponsePrompt',
   input: {schema: GenerateChatbotResponseInputSchema},
   output: {schema: GenerateChatbotResponseOutputSchema},
-  prompt: `Eres un chatbot amigable y servicial. Responde al mensaje del usuario basándote en el historial de chat para mantener el contexto. Sé conciso. Responde en español.
+  prompt: `Eres un experto entrenador personal y un chatbot amigable. Tu especialidad es el {{sport}}. Responde a la pregunta del usuario sobre entrenamiento deportivo, basándote en el historial de chat para mantener el contexto. Sé conciso y motivador. Responde en español.
 
 Historial de chat:
 {{#each chatHistory}}

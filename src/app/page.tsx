@@ -8,6 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { generateChatbotResponse } from '@/ai/flows/generate-response';
 import { getInitialPrompt } from '@/ai/flows/initial-prompt';
 import { cn } from '@/lib/utils';
@@ -22,6 +23,7 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedSport, setSelectedSport] = useState('atletismo');
   const { toast } = useToast();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -45,7 +47,7 @@ export default function Home() {
           title: "Error",
           description: "No se pudo cargar el mensaje inicial. Por favor, actualiza.",
         });
-        setMessages([{ role: 'assistant', content: "¡Hola! ¿Cómo puedo ayudarte hoy?" }]);
+        setMessages([{ role: 'assistant', content: "¡Hola! Soy tu experto en entrenamiento deportivo. ¿En qué puedo ayudarte hoy?" }]);
       } finally {
         setIsLoading(false);
       }
@@ -92,6 +94,7 @@ export default function Home() {
       const response = await generateChatbotResponse({
         message: currentInput,
         chatHistory: chatHistoryForAI,
+        sport: selectedSport,
       });
 
       const assistantMessage: Message = { role: 'assistant', content: response.response };
@@ -119,9 +122,21 @@ export default function Home() {
             <CardTitle className="text-2xl font-headline">IniMeg</CardTitle>
             <CardDescription>chat bot de silarac</CardDescription>
           </div>
-          <Button variant="ghost" size="icon" onClick={handleClearChat} aria-label="Limpiar chat" disabled={isLoading && messages.length > 1}>
-             <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
-          </Button>
+          <div className="flex items-center gap-4">
+            <Select value={selectedSport} onValueChange={setSelectedSport} disabled={isLoading}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Selecciona un deporte" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="atletismo">Atletismo</SelectItem>
+                <SelectItem value="culturismo">Culturismo</SelectItem>
+                <SelectItem value="natacion">Natación</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button variant="ghost" size="icon" onClick={handleClearChat} aria-label="Limpiar chat" disabled={isLoading && messages.length > 1}>
+              <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
+            </Button>
+          </div>
         </CardHeader>
         <CardContent className="flex-grow p-0">
           <ScrollArea className="h-full">
