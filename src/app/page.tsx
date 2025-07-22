@@ -116,7 +116,7 @@ export default function Home() {
       <Card className="w-full max-w-2xl h-[90vh] flex flex-col shadow-xl rounded-2xl">
         <CardHeader className="flex flex-row items-center justify-between border-b p-4">
           <div>
-            <CardTitle className="text-2xl font-headline">silarac_bot</CardTitle>
+            <CardTitle className="text-2xl font-headline">IniMeg</CardTitle>
             <CardDescription>Tu amigable compañero de IA</CardDescription>
           </div>
           <Button variant="ghost" size="icon" onClick={handleClearChat} aria-label="Limpiar chat" disabled={isLoading && messages.length > 1}>

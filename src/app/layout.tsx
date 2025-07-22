@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'silarac_bot',
+  title: 'IniMeg',
   description: 'Tu amigable compañero de IA',
 };
 
