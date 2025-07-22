@@ -120,7 +120,7 @@ export default function Home() {
         <CardHeader className="flex flex-row items-center justify-between border-b p-4">
           <div>
             <CardTitle className="text-2xl font-headline">iniMeg-Sports2.0</CardTitle>
-            <CardDescription>Tu chatbot para deportistas de silarac</CardDescription>
+            <CardDescription>Tu chatbot de silarac para deportistas</CardDescription>
           </div>
           <div className="flex items-center gap-4">
             <Select value={selectedSport} onValueChange={setSelectedSport} disabled={isLoading}>
@@ -164,7 +164,7 @@ export default function Home() {
                         : 'bg-card border rounded-bl-none'
                     )}
                   >
-                    <p className="leading-relaxed break-words">{message.content}</p>
+                    <p className="leading-relaxed" style={{ overflowWrap: 'break-word' }}>{message.content}</p>
                   </div>
                   {message.role === 'user' && (
                      <Avatar className="h-9 w-9 border-2 border-accent/20 shrink-0">
