@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'IniMeg',
-  description: 'chat bot de silarac',
+  title: 'iniMeg-Sports2.0',
+  description: 'chat bot de silarac para deportistas',
 };
 
 export default function RootLayout({
