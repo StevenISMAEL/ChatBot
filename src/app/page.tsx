@@ -175,7 +175,7 @@ export default function Home() {
                   )}
                 </div>
               ))}
-              {isLoading && (
+              {isLoading && messages.length > 0 && (
                 <div className="flex items-end gap-3 justify-start animate-in fade-in-0 zoom-in-95">
                    <Avatar className="h-9 w-9 border-2 border-primary/20 shrink-0">
                       <AvatarFallback className="bg-primary/10">
