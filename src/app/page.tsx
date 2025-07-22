@@ -120,7 +120,7 @@ export default function Home() {
         <CardHeader className="flex flex-row items-center justify-between border-b p-4">
           <div>
             <CardTitle className="text-2xl font-headline">IniMeg</CardTitle>
-            <CardDescription>chat bot de silarac</CardDescription>
+            <CardDescription>Tu chatbot para deportistas</CardDescription>
           </div>
           <div className="flex items-center gap-4">
             <Select value={selectedSport} onValueChange={setSelectedSport} disabled={isLoading}>
