@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'IniMeg',
-  description: 'Tu amigable compañero de IA',
+  description: 'chat bot de silarac',
 };
 
 export default function RootLayout({

@@ -117,7 +117,7 @@ export default function Home() {
         <CardHeader className="flex flex-row items-center justify-between border-b p-4">
           <div>
             <CardTitle className="text-2xl font-headline">IniMeg</CardTitle>
-            <CardDescription>Tu amigable compañero de IA</CardDescription>
+            <CardDescription>chat bot de silarac</CardDescription>
           </div>
           <Button variant="ghost" size="icon" onClick={handleClearChat} aria-label="Limpiar chat" disabled={isLoading && messages.length > 1}>
              <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
