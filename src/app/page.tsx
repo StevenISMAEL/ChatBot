@@ -164,7 +164,7 @@ export default function Home() {
                         : 'bg-card border rounded-bl-none'
                     )}
                   >
-                    <p className="leading-relaxed">{message.content}</p>
+                    <p className="leading-relaxed break-words">{message.content}</p>
                   </div>
                   {message.role === 'user' && (
                      <Avatar className="h-9 w-9 border-2 border-accent/20 shrink-0">
