@@ -34,14 +34,14 @@ const prompt = ai.definePrompt({
   name: 'generateChatbotResponsePrompt',
   input: {schema: GenerateChatbotResponseInputSchema},
   output: {schema: GenerateChatbotResponseOutputSchema},
-  prompt: `You are a friendly and helpful chatbot. Respond to the user message based on the chat history to maintain context.  Be concise.
+  prompt: `Eres un chatbot amigable y servicial. Responde al mensaje del usuario basándote en el historial de chat para mantener el contexto. Sé conciso. Responde en español.
 
-Chat History:
+Historial de chat:
 {{#each chatHistory}}
 {{this.role}}: {{this.content}}
 {{/each}}
 
-User Message: {{message}}`,
+Mensaje del usuario: {{message}}`,
 });
 
 const generateChatbotResponseFlow = ai.defineFlow(

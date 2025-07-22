@@ -22,7 +22,7 @@ export async function getInitialPrompt(): Promise<InitialPromptOutput> {
 const prompt = ai.definePrompt({
   name: 'initialPromptPrompt',
   output: {schema: InitialPromptOutputSchema},
-  prompt: `Suggest a prompt for a user to begin a conversation with this chatbot. Make it engaging and informative about the chatbot's capabilities.  The chatbot is a general purpose conversational AI.  Suggest something creative, and limit it to 20 words.  The entire output should be in the 'prompt' field.`, config: {
+  prompt: `Sugiere un mensaje para que un usuario comience una conversación con este chatbot. Hazlo atractivo e informativo sobre las capacidades del chatbot. El chatbot es una IA conversacional de propósito general. Sugiere algo creativo y limítalo a 20 palabras. Toda la salida debe estar en el campo 'prompt'. La respuesta debe estar en español.`, config: {
     safetySettings: [
       {
         category: 'HARM_CATEGORY_HATE_SPEECH',

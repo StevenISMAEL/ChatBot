@@ -39,13 +39,13 @@ export default function Home() {
         const initial = await getInitialPrompt();
         setMessages([{ role: 'assistant', content: initial.prompt }]);
       } catch (error) {
-        console.error("Failed to get initial prompt:", error);
+        console.error("No se pudo obtener el mensaje inicial:", error);
         toast({
           variant: "destructive",
           title: "Error",
-          description: "Failed to load initial prompt. Please refresh.",
+          description: "No se pudo cargar el mensaje inicial. Por favor, actualiza.",
         });
-        setMessages([{ role: 'assistant', content: "Hello! How can I help you today?" }]);
+        setMessages([{ role: 'assistant', content: "¡Hola! ¿Cómo puedo ayudarte hoy?" }]);
       } finally {
         setIsLoading(false);
       }
@@ -60,11 +60,11 @@ export default function Home() {
         const initial = await getInitialPrompt();
         setMessages([{ role: 'assistant', content: initial.prompt }]);
         toast({
-          title: "Chat cleared",
-          description: "The conversation has been reset.",
+          title: "Chat borrado",
+          description: "La conversación ha sido reiniciada.",
         })
       } catch (error) {
-        setMessages([{ role: 'assistant', content: "Chat cleared. How can I help?" }]);
+        setMessages([{ role: 'assistant', content: "Chat borrado. ¿Cómo puedo ayudar?" }]);
       } finally {
         setIsLoading(false);
       }
@@ -98,13 +98,13 @@ export default function Home() {
       setMessages((prev) => [...prev, assistantMessage]);
 
     } catch (error) {
-      console.error("Failed to get response:", error);
-      const errorMessage: Message = { role: 'assistant', content: "Sorry, I'm having a little trouble thinking right now. Could you try asking again?" };
+      console.error("No se pudo obtener respuesta:", error);
+      const errorMessage: Message = { role: 'assistant', content: "Lo siento, tengo problemas para pensar en este momento. ¿Podrías intentar preguntar de nuevo?" };
       setMessages((prev) => [...prev, errorMessage]);
       toast({
         variant: "destructive",
-        title: "API Error",
-        description: "Failed to get a response from the AI.",
+        title: "Error de API",
+        description: "No se pudo obtener una respuesta de la IA.",
       });
     } finally {
       setIsLoading(false);
@@ -117,9 +117,9 @@ export default function Home() {
         <CardHeader className="flex flex-row items-center justify-between border-b p-4">
           <div>
             <CardTitle className="text-2xl font-headline">ChattyMate</CardTitle>
-            <CardDescription>Your friendly AI companion</CardDescription>
+            <CardDescription>Tu amigable compañero de IA</CardDescription>
           </div>
-          <Button variant="ghost" size="icon" onClick={handleClearChat} aria-label="Clear chat" disabled={isLoading && messages.length > 1}>
+          <Button variant="ghost" size="icon" onClick={handleClearChat} aria-label="Limpiar chat" disabled={isLoading && messages.length > 1}>
              <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
           </Button>
         </CardHeader>
@@ -183,14 +183,14 @@ export default function Home() {
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Type a message..."
+              placeholder="Escribe un mensaje..."
               disabled={isLoading}
               className="flex-1 rounded-full focus-visible:ring-primary"
-              aria-label="Chat input"
+              aria-label="Entrada de chat"
             />
             <Button type="submit" size="icon" className="rounded-full" disabled={isLoading || !input.trim()}>
               <Send className="h-5 w-5" />
-              <span className="sr-only">Send message</span>
+              <span className="sr-only">Enviar mensaje</span>
             </Button>
           </form>
         </CardFooter>
